@@ -1,0 +1,94 @@
+"use client";
+
+import { useState } from "react";
+import Link from "next/link";
+import { Dancing_Script } from "next/font/google";
+import { Menu, X } from "lucide-react";
+import Image from "next/image";
+
+const dancingScript = Dancing_Script({
+	subsets: ["latin"],
+	weight: ["400", "600"],
+});
+
+export default function Header() {
+	const [open, setOpen] = useState(false);
+
+	return (
+		<header className="relative z-50 bg-[#FFF2E6]/50 backdrop-blur-md">
+			<nav className="max-w-7xl mx-auto px-6 py-2 flex items-center justify-between">
+				{/* Logo */}
+				<Link href="/">
+					<Image
+						src="/spalogo.png"
+						alt="Spa dos Focinhos"
+						width={130}
+						height={20}
+						className=""
+					/>
+				</Link>
+
+				{/* Desktop menu */}
+				<div className="hidden md:flex gap-6 items-center text-sm text-[#2B2B2B]">
+					<Link className=" font-title hover:text-[#8B6A4F]" href="/">
+						Início
+					</Link>
+					<Link className="font-title hover:text-[#8B6A4F]" href="/about">
+						Sobre
+					</Link>
+					<Link className="font-title hover:text-[#8B6A4F]" href="/services">
+						Serviços
+					</Link>
+					<Link
+						className="font-title bg-[#A98063] text-white px-4 py-2 rounded-full hover:bg-[#8B6A4F] transition"
+						href="/login"
+					>
+						Login
+					</Link>
+				</div>
+
+				{/* Mobile button */}
+				<button
+					onClick={() => setOpen(!open)}
+					className="md:hidden text-[#A98063]"
+					aria-label="Abrir menu"
+				>
+					{open ? <X size={28} /> : <Menu size={28} />}
+				</button>
+			</nav>
+
+			{/* Mobile menu */}
+			{open && (
+				<div className="absolute top-full left-0 w-full md:hidden bg-[#F6F1EC] border-t border-[#E2D5C8] flex flex-col items-center px-6 py-6 space-y-4 shadow-lg">
+					<Link className="font-title" onClick={() => setOpen(false)} href="/">
+						Início
+					</Link>
+					<hr className="py-full px-6 border-[#A98063] " />
+					<Link
+						className="font-title"
+						onClick={() => setOpen(false)}
+						href="/about"
+					>
+						Sobre
+					</Link>
+					<hr className="py-full px-6 border-[#A98063] " />
+					<Link
+						className="font-title"
+						onClick={() => setOpen(false)}
+						href="/services"
+					>
+						Serviços
+					</Link>
+					<hr className="py-full px-6 border-[#A98063] " />
+					<Link
+						onClick={() => setOpen(false)}
+						href="/login"
+						className="font-title text-center bg-[#A98063] p-5 text-white py-2 rounded-full "
+					>
+						Login
+					</Link>
+				</div>
+			)}
+		</header>
+	);
+}
