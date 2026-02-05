@@ -8,8 +8,6 @@ import { AppointmentCard } from "@/components/AppointmentCard";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 export default function Dashboard() {
-	const [appointments, setAppointments] = useState<Appointment[]>([]);
-	const [loading, setLoading] = useState(true);
 	const { user } = useAuth();
 
 	return (

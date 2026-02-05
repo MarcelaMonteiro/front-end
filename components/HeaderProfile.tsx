@@ -20,12 +20,10 @@ export default function HeaderProfile() {
 	return (
 		<header className="relative z-50 bg-[#F4ECE6]/80 backdrop-blur-md ">
 			<nav className="flex items-center justify-between px-6 md:px-10 py-4 overflow-hidden">
-				{/* Botão Mobile */}
 				<button className="md:hidden" onClick={() => setOpen(!open)}>
 					{open ? <X size={28} /> : <Menu size={28} />}
 				</button>
 
-				{/* Logo */}
 				<Link href="/dashboard">
 					<Image
 						src="/spalogo.png"
@@ -35,29 +33,31 @@ export default function HeaderProfile() {
 					/>
 				</Link>
 
-				{/* Desktop Links */}
 				<div className="hidden md:flex gap-6">
-					<Link href="/dashboard" className="hover:text-[#8B6A4F]">
+					<Link
+						href="/dashboard"
+						className="hover:text-[#8B6A4F] cursor-pointer"
+					>
 						Início
 					</Link>
 
-					<Link href="/appointments" className="hover:text-[#8B6A4F]">
+					<Link
+						href="/appointments"
+						className="hover:text-[#8B6A4F] cursor-pointer"
+					>
 						Meus agendamentos
 					</Link>
-
-					<Link href="/profile" className="hover:text-[#8B6A4F]">
+					<Link href="/profile" className="hover:text-[#8B6A4F] cursor-pointer">
 						Perfil
 					</Link>
-
 					<button
 						onClick={handleLogout}
-						className="text-red-600 font-semibold hover:text-red-700"
+						className="text-red-600 font-semibold hover:text-red-700 cursor-pointer"
 					>
 						Sair
 					</button>
 				</div>
 
-				{/* Dropdown Mobile */}
 				{open && (
 					<div
 						className="absolute top-full left-0 w-full z-50 md:hidden 
@@ -67,15 +67,15 @@ export default function HeaderProfile() {
 						<Link href="/dashboard" onClick={() => setOpen(false)}>
 							Início
 						</Link>
-
+						<hr className="py-full px-6 border-[#A98063] " />
 						<Link href="/appointments" onClick={() => setOpen(false)}>
 							Meus agendamentos
 						</Link>
-
+						<hr className="py-full px-6 border-[#A98063] " />
 						<Link href="/profile" onClick={() => setOpen(false)}>
 							Meu Perfil
 						</Link>
-
+						<hr className="py-full px-6 border-[#A98063] " />
 						<button
 							onClick={handleLogout}
 							className="text-red-600 font-semibold"

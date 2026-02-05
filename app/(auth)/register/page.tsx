@@ -112,7 +112,6 @@ export default function Register() {
 						/>
 					</div>
 
-					{/* SENHA */}
 					<div className="relative">
 						<Lock
 							className="absolute left-4 top-1/2 -translate-y-1/2 text-[#B99577]"

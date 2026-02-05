@@ -17,7 +17,6 @@ export default function Header() {
 	return (
 		<header className="relative z-50 bg-[#FFF2E6]/50 backdrop-blur-md">
 			<nav className="max-w-7xl mx-auto px-6 py-2 flex items-center justify-between">
-				{/* Logo */}
 				<Link href="/">
 					<Image
 						src="/spalogo.png"
@@ -28,7 +27,6 @@ export default function Header() {
 					/>
 				</Link>
 
-				{/* Desktop menu */}
 				<div className="hidden md:flex gap-6 items-center text-sm text-[#2B2B2B]">
 					<Link className=" font-title hover:text-[#8B6A4F]" href="/">
 						Início
@@ -47,7 +45,6 @@ export default function Header() {
 					</Link>
 				</div>
 
-				{/* Mobile button */}
 				<button
 					onClick={() => setOpen(!open)}
 					className="md:hidden text-[#A98063]"
@@ -57,7 +54,6 @@ export default function Header() {
 				</button>
 			</nav>
 
-			{/* Mobile menu */}
 			{open && (
 				<div className="absolute top-full left-0 w-full md:hidden bg-[#F6F1EC] border-t border-[#E2D5C8] flex flex-col items-center px-6 py-6 space-y-4 shadow-lg">
 					<Link className="font-title" onClick={() => setOpen(false)} href="/">

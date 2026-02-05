@@ -16,7 +16,7 @@ export default function Login() {
 	const [error, setError] = useState("");
 	const [loading, setLoading] = useState(false);
 
-	/* 🔒 Bloqueia a página se já estiver autenticada */
+	/*  Bloqueia a página se já estiver autenticada */
 	useEffect(() => {
 		if (isAuthenticated) {
 			router.replace("/dashboard");
@@ -48,10 +48,7 @@ export default function Login() {
 				return;
 			}
 
-			/* ✅ token correto */
 			await login(data.accessToken);
-
-			/* ✅ redirect direto, sem depender de estado assíncrono */
 
 			router.replace("/dashboard");
 		} catch {
@@ -92,7 +89,6 @@ export default function Login() {
 				<div className="bg-[#FBF7F4] p-9 mt-6 rounded-2xl">
 					<form onSubmit={handleSubmit}>
 						<div className="flex flex-col gap-5">
-							{/* EMAIL */}
 							<div className="relative">
 								<Mail
 									className="absolute left-4 top-1/2 -translate-y-1/2 text-[#B99577]"
@@ -111,7 +107,6 @@ export default function Login() {
 								/>
 							</div>
 
-							{/* SENHA */}
 							<div className="relative">
 								<Lock
 									className="absolute left-4 top-1/2 -translate-y-1/2 text-[#B99577]"
